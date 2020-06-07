@@ -1,0 +1,19 @@
+server:
+  port: 8088
+  servlet:
+    context-path: /spring-mvc
+
+spring:
+  freemarker:
+    templateLoaderPath: classpath:/static/
+    suffix: .ftl
+    charset: UTF-8
+    request-context-attribute: request
+
+
+jwt:
+  # 加密秘钥
+  secret: HZa64EK1MgX0DssZOTZdeMWh6QIea9ic
+  # token有效时长，7天，单位秒  暂时更改为1天 24*3600 = 86400
+  expire: 86400
+  header: token
