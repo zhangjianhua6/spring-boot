@@ -1,6 +1,7 @@
 package com.jason.web.controller;
 
 import com.alibaba.fastjson.JSONObject;
+import com.jason.web.annotation.AuthIgnore;
 import com.jason.web.pojo.response.AopResponse;
 import com.jason.web.pojo.response.InfoReturn;
 import com.jason.web.utils.JwtUtils;
