@@ -23,6 +23,7 @@ public class SysUserController {
     private JwtUtils jwtUtils;
 
     @PostMapping("/login")
+    @AuthIgnore
     public InfoReturn<JSONObject> login(){
         InfoReturn<JSONObject> res =  new InfoReturn<JSONObject>();
         JSONObject obj = new JSONObject();

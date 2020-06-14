@@ -1,4 +1,4 @@
-FROM mrsinham/alpine-oraclejdk8
+FROM openjdk:8
 VOLUME /tmp
 ADD spring-mvc.jar app.jar
 RUN sh -c 'touch /app.jar'
