@@ -19,13 +19,15 @@ import javax.servlet.http.HttpServletResponse;
  * @author: zhangjianhua
  * @date: 2019-12-07 15:01
  **/
-@Component
 public class AuthorizationInterceptor extends HandlerInterceptorAdapter {
 
-    @Autowired
     private JwtUtils jwtUtils;
 
     public static final String USER_KEY = "userId";
+
+    public AuthorizationInterceptor(JwtUtils jwtUtils) {
+        this.jwtUtils = jwtUtils;
+    }
 
     @Override
     public boolean preHandle(HttpServletRequest request, HttpServletResponse response, Object handler)
