@@ -1,7 +1,5 @@
 server:
   port: 8088
-  servlet:
-    context-path: /spring-mvc
 
 spring:
   freemarker:
@@ -17,3 +15,6 @@ jwt:
   # token有效时长，7天，单位秒  暂时更改为1天 24*3600 = 86400
   expire: 86400
   header: token
+
+websocket:
+  type: spring
