@@ -1,36 +1,36 @@
 package com.jason.web.controller;
 
 import com.jason.web.annotation.AuthIgnore;
+import com.jason.web.annotation.Log;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.ResponseBody;
-import org.springframework.web.bind.annotation.RestController;
-import org.springframework.web.servlet.ModelAndView;
 
 @Controller
 public class IndexController {
 
-    private volatile int userNum = 0;
+    @Autowired
+    private IndexController indexController;
 
-    @RequestMapping("/login")
-    @ResponseBody
-    @AuthIgnore
-    public String login(){
-        return "Hello, SpringBoot With Docker";
+    @Log(isIgnore = true)
+    public void loginInternal(String logKey){
+        System.err.println(logKey);
     }
 
     @RequestMapping("/")
-    @ResponseBody
     @AuthIgnore
-    public String hello() {
-        return "Hello, SpringBoot With Docker";
+    public String hello(Model model) {
+        indexController.loginInternal("logKey");
+        model.addAttribute("msg", "hello, this is index!");
+        return "index";
     }
 
 
     @RequestMapping("/index")
     @AuthIgnore
     public String index(Model model){
+        indexController.loginInternal("logKey");
         model.addAttribute("msg", "hello, this is index!");
         return "index";
     }
