@@ -127,7 +127,7 @@ public class TokenGranterConfig {
     private DefaultTokenServices createDefaultTokenServices() {
         DefaultTokenServices tokenServices = new DefaultTokenServices();
         tokenServices.setTokenStore(tokenStore);
-        tokenServices.setSupportRefreshToken(true);
+        tokenServices.setSupportRefreshToken(reuseRefreshToken);
         tokenServices.setReuseRefreshToken(reuseRefreshToken);
         tokenServices.setClientDetailsService(clientDetailsService);
         tokenServices.setTokenEnhancer(tokenEnhancer);
