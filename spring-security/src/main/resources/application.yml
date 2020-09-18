@@ -1,0 +1,11 @@
+server:
+  port: 8087
+  servlet:
+    context-path: /spring-security
+
+spring:
+  mvc:
+    view:
+      prefix: /WEB-INF/views/
+      suffix: .jsp
+

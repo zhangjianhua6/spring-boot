@@ -2,69 +2,57 @@
 <project xmlns="http://maven.apache.org/POM/4.0.0"
          xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
          xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+
+    <modelVersion>4.0.0</modelVersion>
+
     <parent>
         <artifactId>spring-boot</artifactId>
         <groupId>com.jason</groupId>
         <version>1.0.0-SNAPSHOT</version>
     </parent>
-    <modelVersion>4.0.0</modelVersion>
 
-    <artifactId>spring-mvc</artifactId>
+
+    <groupId>com.jason</groupId>
+    <artifactId>spring-security</artifactId>
+    <packaging>jar</packaging>
 
     <dependencies>
-        <!-- Spring Boot Begin -->
+        <!-- spring boot依赖 -->
+        <dependency>
+            <groupId>org.springframework.boot</groupId>
+            <artifactId>spring-boot-starter</artifactId>
+        </dependency>
         <dependency>
             <groupId>org.springframework.boot</groupId>
             <artifactId>spring-boot-starter-web</artifactId>
-            <exclusions>
-                <exclusion>
-                    <groupId>org.springframework.boot</groupId>
-                    <artifactId>spring-boot-starter-tomcat</artifactId>
-                </exclusion>
-            </exclusions>
         </dependency>
 
-        <!--jetty容器-->
+        <!-- spring security依赖 -->
         <dependency>
             <groupId>org.springframework.boot</groupId>
-            <artifactId>spring-boot-starter-jetty</artifactId>
+            <artifactId>spring-boot-starter-security</artifactId>
         </dependency>
-
-        <!-- freemarker-starter -->
         <dependency>
-            <groupId>org.springframework.boot</groupId>
-            <artifactId>spring-boot-starter-freemarker</artifactId>
+            <groupId>org.springframework.social</groupId>
+            <artifactId>spring-social-security</artifactId>
         </dependency>
-
-        <!-- spring aop-->
+        <!-- servlet依赖 -->
         <dependency>
-            <groupId>org.springframework.boot</groupId>
-            <artifactId>spring-boot-starter-aop</artifactId>
+            <groupId>javax.servlet</groupId>
+            <artifactId>javax.servlet-api</artifactId>
+            <scope>provided</scope>
         </dependency>
-
+        <!-- jsp页面使用jstl标签 -->
         <dependency>
-            <groupId>io.jsonwebtoken</groupId>
-            <artifactId>jjwt</artifactId>
+            <groupId>javax.servlet</groupId>
+            <artifactId>jstl</artifactId>
         </dependency>
-
+        <!-- 用于编译jsp -->
         <dependency>
-            <groupId>io.netty</groupId>
-            <artifactId>netty-all</artifactId>
+            <groupId>org.apache.tomcat.embed</groupId>
+            <artifactId>tomcat-embed-jasper</artifactId>
+            <scope>provided</scope>
         </dependency>
-
-
-        <dependency>
-            <groupId>org.springframework</groupId>
-            <artifactId>spring-websocket</artifactId>
-            <version>5.0.9.RELEASE</version>
-        </dependency>
-
-        <dependency>
-            <groupId>com.jason</groupId>
-            <artifactId>common-core</artifactId>
-            <version>1.0.0-SNAPSHOT</version>
-        </dependency>
-
 
     </dependencies>
 
@@ -82,6 +70,5 @@
             </plugin>
         </plugins>
     </build>
-
 
 </project>

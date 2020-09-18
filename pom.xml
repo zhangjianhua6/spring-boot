@@ -8,7 +8,11 @@
     <artifactId>spring-boot</artifactId>
     <version>1.0.0-SNAPSHOT</version>
     <modules>
+        <module>commons</module>
         <module>spring-mvc</module>
+        <module>spring-security</module>
+        <module>spring-cloud-gateway</module>
+        <module>spring-cloud-oauth2</module>
     </modules>
     <packaging>pom</packaging>
 
@@ -17,8 +21,9 @@
         <maven.compiler.target>1.8</maven.compiler.target>
         <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
         <java.version>8</java.version>
+        <docker-maven-plugin.version>0.4.13</docker-maven-plugin.version>
         <docker.host>http://47.113.88.115:2375</docker.host>
-        <docker.image.prefix>spring-boot</docker.image.prefix>
+        <docker.image.prefix>jason</docker.image.prefix>
         <commons-collections4.version>4.4</commons-collections4.version>
         <fastjson.version>1.2.62</fastjson.version>
         <swagger.version>2.9.2</swagger.version>
@@ -363,6 +368,13 @@
                     <groupId>org.springframework.boot</groupId>
                     <artifactId>spring-boot-maven-plugin</artifactId>
                     <version>${spring-boot-maven-plugin.version}</version>
+                    <executions>
+                        <execution>
+                            <goals>
+                                <goal>repackage</goal>
+                            </goals>
+                        </execution>
+                    </executions>
                 </plugin>
                 <plugin>
                     <artifactId>maven-compiler-plugin</artifactId>
@@ -379,6 +391,25 @@
                         <archive>
                             <addMavenDescriptor>false</addMavenDescriptor>
                         </archive>
+                    </configuration>
+                </plugin>
+                <!-- 首先加入pom ${docker.image.prefix} ： 这个是你的dockerhub注册上面的名字 gitgeek 这个是我注册的
+                ${project.artifactId} ： 项目的名称 dockerDirectory ： dockerfile的文件路径 -->
+                <plugin>
+                    <groupId>com.spotify</groupId>
+                    <artifactId>docker-maven-plugin</artifactId>
+                    <version>${docker-maven-plugin.version}</version>
+                    <configuration>
+                        <imageName>${docker.image.prefix}/${project.artifactId}</imageName>
+                        <dockerDirectory>src/main/docker</dockerDirectory>
+                        <dockerHost>${docker.host}</dockerHost>
+                        <resources>
+                            <resource>
+                                <targetPath>/</targetPath>
+                                <directory>${project.build.directory}</directory>
+                                <include>${project.build.finalName}.jar</include>
+                            </resource>
+                        </resources>
                     </configuration>
                 </plugin>
             </plugins>

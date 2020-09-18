@@ -1,14 +1,13 @@
-package com.jason.web.lock;
+package com.jason.common.redis.lock;
 
-import com.jason.web.constant.CommonConstant;
-import com.jason.web.exception.LockException;
+import com.jason.common.constant.CommonConstant;
+import com.jason.common.exception.LockException;
+import com.jason.common.lock.DistributedLock;
 import org.redisson.api.RLock;
 import org.redisson.api.RedissonClient;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.autoconfigure.condition.ConditionalOnClass;
 import org.springframework.boot.autoconfigure.condition.ConditionalOnProperty;
-import org.springframework.context.annotation.Configuration;
-
 import java.util.concurrent.TimeUnit;
 
 /**
@@ -17,8 +16,8 @@ import java.util.concurrent.TimeUnit;
  */
 @ConditionalOnClass(RedissonClient.class)
 @ConditionalOnProperty(prefix = "lock", name = "type", havingValue = "redis")
-@Configuration
 public class RedissonDistributedLock implements DistributedLock {
+
     @Autowired
     private RedissonClient redisson;
 

@@ -1,4 +1,4 @@
-package com.jason.web.exception;
+package com.jason.common.exception;
 
 
 public class LockException extends RuntimeException  {

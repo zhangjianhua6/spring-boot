@@ -1,7 +1,7 @@
-package com.jason.web.lock;
+package com.jason.common.lock;
 
 import cn.hutool.core.util.StrUtil;
-import com.jason.web.exception.LockException;
+import com.jason.common.exception.LockException;
 import lombok.extern.slf4j.Slf4j;
 import org.aspectj.lang.ProceedingJoinPoint;
 import org.aspectj.lang.annotation.Around;

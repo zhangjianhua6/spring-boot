@@ -1,4 +1,4 @@
-package com.jason.web.lock;
+package com.jason.common.lock;
 
 import java.lang.annotation.*;
 import java.util.concurrent.TimeUnit;
