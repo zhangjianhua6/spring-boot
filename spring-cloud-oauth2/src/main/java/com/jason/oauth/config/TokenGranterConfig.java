@@ -50,7 +50,7 @@ public class TokenGranterConfig {
     @Autowired
     private RedisAuthorizationCodeServices authorizationCodeServices;
 
-    private boolean reuseRefreshToken = false;
+    private boolean reuseRefreshToken = true;
 
     private AuthorizationServerTokenServices tokenServices;
 
@@ -85,8 +85,6 @@ public class TokenGranterConfig {
         OAuth2RequestFactory requestFactory = requestFactory();
         //获取默认的授权模式
         List<TokenGranter> tokenGranters = getDefaultTokenGranters(tokenServices, authorizationCodeServices, requestFactory);
-        if (authenticationManager != null) {
-        }
         return tokenGranters;
     }
 

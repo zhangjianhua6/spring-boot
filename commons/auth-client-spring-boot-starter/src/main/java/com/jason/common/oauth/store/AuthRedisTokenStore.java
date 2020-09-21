@@ -11,7 +11,7 @@ import org.springframework.security.oauth2.provider.token.store.redis.RedisToken
  * 认证服务器使用Redis存取令牌
  * 注意: 需要配置redis参数
  */
-@ConditionalOnProperty(prefix = "stock.oauth2.token.store", name = "type", havingValue = "redis", matchIfMissing = true)
+@ConditionalOnProperty(prefix = "jason.oauth2.token.store", name = "type", havingValue = "redis", matchIfMissing = true)
 public class AuthRedisTokenStore {
 
     @Autowired

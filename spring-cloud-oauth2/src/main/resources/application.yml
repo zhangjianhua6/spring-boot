@@ -1,7 +1,7 @@
 server:
   port: 8086
   servlet:
-    context-path: /spring-cloud-oauth2
+    context-path: /api-uaa
 
 
 spring:

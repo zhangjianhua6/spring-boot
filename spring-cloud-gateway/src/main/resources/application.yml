@@ -1,0 +1,57 @@
+server:
+  port: 8085
+
+spring:
+
+  redis:
+    host: 47.113.88.115
+    #redis端口
+    port: 6379
+    #redis超时时间（毫秒），如果不设置，取默认值2000
+    timeout: 10000
+
+  main:
+    allow-bean-definition-overriding: true
+
+
+  cloud:
+    gateway:
+      discovery:
+        locator:
+          #lowerCaseServiceId: true
+          enabled: false
+      routes:
+        - id: auth
+          uri: http://127.0.0.1:8086/
+          predicates:
+            - Path=/api-uaa/**
+          filters:
+            - StripPrefix=0
+
+
+jason:
+  gateway:
+    #网关动态路由
+    dynamicRoute:
+      enabled: true
+      dataType: properties
+  oauth2:
+    token:
+      store:
+        type: redis
+
+  security:
+    ignore:
+      # 忽略认证的地址
+      httpUrls: >
+        /api-uaa/oauth/**,
+        /api-uaa/validata/**,
+        /api-uaa/css/**,
+        /api-uaa/images/**,
+        /api-uaa/js/**,
+        /login.html,
+        /user/login
+    auth:
+      httpUrls: >
+
+

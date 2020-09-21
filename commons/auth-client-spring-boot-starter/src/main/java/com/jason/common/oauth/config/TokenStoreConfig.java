@@ -12,7 +12,7 @@ import org.springframework.context.annotation.Import;
 public class TokenStoreConfig {
 
     @Configuration
-    @ConditionalOnProperty(prefix = "stock.oauth2.token.store", name = "type", havingValue = "redis", matchIfMissing = true)
+    @ConditionalOnProperty(prefix = "jason.oauth2.token.store", name = "type", havingValue = "redis", matchIfMissing = true)
     @Import(AuthRedisTokenStore.class)
     public class RedisTokenConfig {
     }
