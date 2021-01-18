@@ -6,7 +6,7 @@ import org.springframework.context.annotation.Configuration;
 import org.springframework.web.socket.server.standard.ServerEndpointExporter;
 
 @Configuration
-@ConditionalOnProperty(prefix = "websocket", name = "type", havingValue = "javax")
+@ConditionalOnProperty(prefix = "websocket", name = "type", havingValue = "javax", matchIfMissing = true)
 public class JavaxWebSocketConfig {
 
     @Bean
