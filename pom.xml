@@ -41,7 +41,7 @@
         <hutool.version>5.1.4</hutool.version>
         <mybatis-plus-boot-starter.version>3.3.1</mybatis-plus-boot-starter.version>
         <mybatis-spring-boot-starter.version>2.1.1</mybatis-spring-boot-starter.version>
-        <mybatis.version>3.5.3</mybatis.version>
+        <mybatis.version>3.5.6</mybatis.version>
         <aliyun-sdk-oss>3.8.1</aliyun-sdk-oss>
         <qiniu-java-sdk>7.2.28</qiniu-java-sdk>
         <easypoi.version>4.1.3</easypoi.version>
