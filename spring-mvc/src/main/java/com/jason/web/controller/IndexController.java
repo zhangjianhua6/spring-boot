@@ -30,6 +30,7 @@ public class IndexController {
     @RequestMapping("/index")
     @AuthIgnore
     public String index(Model model){
+        //throw new RuntimeException();
         indexController.loginInternal("logKey");
         model.addAttribute("msg", "hello, this is index!");
         return "index";

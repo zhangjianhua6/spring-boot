@@ -6,9 +6,10 @@ server:
 
 spring:
   redis:
-    host: 47.113.88.115
+    host:  r-wz9880cd5fed07f4pd.redis.rds.aliyuncs.com  # 172.20.11.233
     #redis端口
-    port: 6379
+    port: 6379 #16379
+    password: Ry7Xd0Mu3G #stock
     #redis超时时间（毫秒），如果不设置，取默认值2000
     timeout: 10000
 

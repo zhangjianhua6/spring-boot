@@ -23,8 +23,8 @@ public class ExceptionHandlerController {
         return new AopResponse(AopResponse.AUTH_ERROR, e.getMessage());
     }
 
-    @ExceptionHandler(Exception.class)
-    @ResponseBody
+    //@ExceptionHandler(Exception.class)
+    //@ResponseBody
     public AopResponse exceptionHandler(Exception e){
         logger.error("系统异常", e);
         return new AopResponse(AopResponse.SYS_ERROR, "系统繁忙");

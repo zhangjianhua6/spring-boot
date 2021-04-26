@@ -2,6 +2,7 @@ package com.jason.oauth.config;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.autoconfigure.AutoConfigureAfter;
+import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
 import org.springframework.security.authentication.AuthenticationManager;
 import org.springframework.security.core.userdetails.UserDetailsService;
@@ -18,6 +19,8 @@ import org.springframework.security.oauth2.provider.token.TokenEnhancer;
 import org.springframework.security.oauth2.provider.token.TokenEnhancerChain;
 import org.springframework.security.oauth2.provider.token.TokenStore;
 import org.springframework.security.oauth2.provider.token.store.JwtAccessTokenConverter;
+import org.springframework.security.oauth2.provider.token.store.JwtTokenStore;
+
 import javax.annotation.Resource;
 import java.util.Arrays;
 
@@ -85,12 +88,25 @@ public class AuthorizationServerConfig extends AuthorizationServerConfigurerAdap
 
     }
 
-    /**
-     * 配置应用名称 应用id
-     * 配置OAuth2的客户端相关信息
-     * @param clients
-     * @throws Exception
-     */
+    @Bean
+    public TokenStore tokenStore() {
+        return new JwtTokenStore(jwtAccessTokenConverter());
+    }
+
+    @Bean
+    public JwtAccessTokenConverter jwtAccessTokenConverter(){
+        JwtAccessTokenConverter converter = new JwtAccessTokenConverter();
+        converter.setSigningKey("uaa123"); //对称秘钥，资源服务器使用该秘钥来解密 
+        return converter;
+    }
+
+
+        /**
+         * 配置应用名称 应用id
+         * 配置OAuth2的客户端相关信息
+         * @param clients
+         * @throws Exception
+         */
     @Override
     public void configure(ClientDetailsServiceConfigurer clients) throws Exception {
 
@@ -99,7 +115,7 @@ public class AuthorizationServerConfig extends AuthorizationServerConfigurerAdap
                 .secret("app")
                 .redirectUris("http://localhost:8081/callback") //新增redirect_uri
                 .authorizedGrantTypes("authorization_code", "client_credentials", "refresh_token",
-                        "password", "implicit")
+                            "password", "implicit")
                 .scopes("all")
                 .resourceIds("oauth2-resource")
                 .accessTokenValiditySeconds(3600)

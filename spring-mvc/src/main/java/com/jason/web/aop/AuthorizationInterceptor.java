@@ -45,7 +45,7 @@ public class AuthorizationInterceptor extends HandlerInterceptorAdapter {
             return true;
         }
 
-        String token = request.getHeader(jwtUtils.getHeader());
+        /*String token = request.getHeader(jwtUtils.getHeader());
         if(StringUtils.isBlank(token)){
             throw new AuthException(jwtUtils.getHeader() + "不能为空");
         }
@@ -55,7 +55,7 @@ public class AuthorizationInterceptor extends HandlerInterceptorAdapter {
             throw new AuthException(jwtUtils.getHeader() + "失效，请重新登录");
         }
 
-        request.setAttribute(USER_KEY, Long.parseLong(claims.getSubject()));
+        request.setAttribute(USER_KEY, Long.parseLong(claims.getSubject()));*/
 
         return true;
     }

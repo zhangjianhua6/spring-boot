@@ -1,0 +1,77 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE generatorConfiguration
+        PUBLIC "-//mybatis.org//DTD MyBatis Generator Configuration 1.0//EN"
+        "http://mybatis.org/dtd/mybatis-generator-config_1_0.dtd" >
+<generatorConfiguration>
+    <!-- 数据库驱动:选择你的本地硬盘上面的数据库驱动包，路径不要出现中文-->
+
+    <classPathEntry
+            location="D:\apache-maven-3.6.1\repository\mysql\mysql-connector-java\8.0.16\mysql-connector-java-8.0.16.jar"/>
+   <!-- <classPathEntry
+            location="D:\01_work\99_repository\mysql\mysql-connector-java\8.0.16\mysql-connector-java-8.0.16.jar"/>-->
+
+
+    <context id="context1" targetRuntime="MyBatis3">
+        <commentGenerator>
+            <!-- 去除自动生成的注释 -->
+            <property name="suppressAllComments" value="true"/>
+        </commentGenerator>
+
+        <!-- 数据库连接配置 -->
+        <jdbcConnection driverClass="com.mysql.jdbc.Driver"
+                        connectionURL="jdbc:mysql://127.0.0.1:3306/jlpay_league?useUnicode=true&amp;allowMultiQueries=true&amp;characterEncoding=UTF-8&amp;useSSL=false&amp;serverTimezone=GMT%2B8"
+                        userId="root"
+                        password="123456"/>
+
+        <!--DEVELOPMENTFW 只有一个属于forceBigDecimals，默认false。 如果字段精确超过0，生成BigDecimal
+        如果字段精确是0，总长度10-18 生成Long; 如果字段精确是0，总长5-9生成Integer; 如果字段精确是0，总长小于5生成Short;
+        如果forceBigDecimals为true,统一生成BigDecimal -->
+        <javaTypeResolver>
+            <property name="forceBigDecimals" value="false"/>
+        </javaTypeResolver>
+
+        <!--配置生成的实体包
+            targetPackage：生成的实体包位置，默认存放在src目录下
+            targetProject：目标工程名
+         -->
+        <javaModelGenerator targetPackage="com.jason.web.entity"
+                            targetProject="src/main/java">
+            <property name="enableSubPackages" value="false"/>
+            <property name="trimStrings" value="true"/>
+        </javaModelGenerator>
+
+
+        <!-- 实体包对应映射文件位置及名称
+            targetPackage：生成的实体包位置，默认存放在src目录下
+            targetProject：目标工程名
+         -->
+        <sqlMapGenerator targetPackage="mapper"
+                         targetProject="src/main/resources">
+            <property name="enableSubPackages" value="false"/>
+        </sqlMapGenerator>
+
+        <!-- mapxml对应client，也就是接口dao
+           targetPackage：生成的实体包位置，默认存放在src目录下
+           targetProject：目标工程名
+        -->
+        <javaClientGenerator targetPackage="com.jason.web.mapper"
+                             targetProject="src/main/java" type="XMLMAPPER">
+            <property name="enableSubPackages" value="false"/>
+            <property name="rootInterface" value=""/>
+        </javaClientGenerator>
+
+        <!-- 配置表
+            tableName: 表名
+            domainObjectName: 实体名称
+            enableCountByExample、enableSelectByExample、enableDeleteByExample、enableUpdateByExample、selectByExampleQueryId：
+            去除自动生成的例子
+        -->
+        <table tableName="test" domainObjectName = "Test"
+             enableCountByExample="false" enableSelectByExample="false"
+             enableDeleteByExample="false" enableUpdateByExample="false" selectByExampleQueryId="false" >
+         </table>
+
+
+ </context>
+
+</generatorConfiguration>

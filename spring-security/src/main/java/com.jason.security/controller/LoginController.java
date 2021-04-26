@@ -11,9 +11,14 @@ import org.springframework.web.bind.annotation.RestController;
 @RestController
 public class LoginController {
 
-    @RequestMapping(value = "/login‐success", produces = {"text/plain;charset=UTF-8"})
+    @RequestMapping(value = "/login-success", produces = {"text/plain;charset=UTF-8"})
     public String loginSuccess(){
         return "登录成功";
+    }
+
+    @RequestMapping(value = "/logout-success", produces = {"text/plain;charset=UTF-8"})
+    public String logoutSuccess(){
+        return "退出登入";
     }
 
     /**
