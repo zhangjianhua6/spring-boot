@@ -12,8 +12,21 @@ import org.springframework.stereotype.Service;
 @Service
 @Order(Integer.MAX_VALUE)
 public class UserService {
+
     private static final Logger logger = LoggerFactory.getLogger(UserService.class);
+
     public UserService() {
         logger.info("【构造函数】调用构造函数，实例化UserService对象");
+    }
+
+    public void getUser(Long userId){
+        Object o = new Object();
+        try {
+            if (o == null){
+                throw new RuntimeException();
+            }
+        }catch (Exception ex){
+            throw ex;
+        }
     }
 }

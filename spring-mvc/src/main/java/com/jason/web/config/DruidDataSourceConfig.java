@@ -17,8 +17,8 @@ import org.springframework.jdbc.datasource.DataSourceTransactionManager;
 import javax.sql.DataSource;
 
 
-@Configuration
-@MapperScan(basePackages = {"com.jason.web.mapper"}, sqlSessionTemplateRef = "baseSqlSessionTemplate")
+//@Configuration
+//@MapperScan(basePackages = {"com.jason.web.mapper"}, sqlSessionTemplateRef = "baseSqlSessionTemplate")
 public class DruidDataSourceConfig {
 
     @Bean(name = "baseDataSource")
