@@ -59,7 +59,7 @@
         <commons-beanutils.version>1.9.4</commons-beanutils.version>
         <spring-social-security.version>1.1.6.RELEASE</spring-social-security.version>
         <commons-lang3.version>3.8.1</commons-lang3.version>
-        <commons-io.version>2.6</commons-io.version>
+        <commons-io.version>2.7</commons-io.version>
         <servlet-api.version>4.0.1</servlet-api.version>
         <redisson.version>3.11.5</redisson.version>
         <spring-cloud-alibaba-dependencies.version>2.1.1.RELEASE</spring-cloud-alibaba-dependencies.version>
