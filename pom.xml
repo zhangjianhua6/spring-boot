@@ -26,7 +26,7 @@
         <docker.host>http://47.113.88.115:2375</docker.host>
         <docker.image.prefix>jason</docker.image.prefix>
         <commons-collections4.version>4.4</commons-collections4.version>
-        <fastjson.version>1.2.62</fastjson.version>
+        <fastjson.version>1.2.83</fastjson.version>
         <swagger.version>2.9.2</swagger.version>
         <swagger.ui.version>1.8.7</swagger.ui.version>
         <swagger.mg.ui.version>1.0.6</swagger.mg.ui.version>
